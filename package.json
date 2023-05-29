@@ -1,5 +1,5 @@
 {
-  "name": "2023-1q-web",
+  "name": "2023-dhu1q-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,11 +12,19 @@
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
+    "@types/styled-components": "^5.1.26",
+    "@types/three": "^0.152.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "styled-components": "^5.3.11",
+    "three": "^0.152.2",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "glslify-loader": "^2.0.0",
+    "raw-loader": "^4.0.2"
   }
 }
