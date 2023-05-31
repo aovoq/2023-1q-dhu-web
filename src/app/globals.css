@@ -9,6 +9,11 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
+  --background: #3D3935;
+  --text-main-color: #ffffff;
+  --text-jp-font: var(--font-satoshi);
+  --text-en-font: var(--font-ttcommons);
+
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,
@@ -86,13 +91,15 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-main-color);
+  background: var(--background);
+  font-family: var(--font-satoshi);
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-weight: inherit;
+   font-size: 100%;
 }
 
 a {

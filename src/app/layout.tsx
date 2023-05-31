@@ -1,7 +1,6 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Satoshi, TTCommons } from '../util/font'
+import { createGlobalStyle } from 'styled-components'
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,8 +13,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html className={`${Satoshi.variable} ${TTCommons.variable}`} lang="ja">
+      <body>{children}</body>
     </html>
   )
 }
+
