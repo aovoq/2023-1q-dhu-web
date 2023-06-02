@@ -1,10 +1,12 @@
 'use client'
+import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 const Section = styled.section`
    background: var(--background);
    padding-inline: 20px;
    color: #323232;
+   position: relative;
 `
 
 const Container = styled.div`
@@ -87,16 +89,71 @@ const WorkListItemTitle = styled.span`
    }
 `
 
+const CursorStoker = styled.div`
+   position: absolute;
+   opacity: 0;
+   border: 12px solid #686868;
+   border-radius: 8px;
+`
+
+const StokerInner = styled.div`
+   background: #686868;
+   img {
+      border-radius: 6px;
+   }
+`
+
 const WorksSection = () => {
+   const stokerRef = useRef<HTMLDivElement>(null)
+   const [onEnter, setOnEnter] = useState(false)
+   const sectionRef = useRef<HTMLDivElement>(null)
+
+   useEffect(() => {
+      const onMouseMove = (event: MouseEvent) => {
+         const stoker = stokerRef.current
+         if (stoker) {
+            console.log(event.clientX, event.clientY)
+            // stoker.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`
+            stoker.style.top = `${event.clientY}px`
+            stoker.style.left = `${event.clientX}px`
+         }
+      }
+      window.addEventListener('mousemove', onMouseMove)
+      return () => {
+         window.removeEventListener('mousemove', onMouseMove)
+      }
+   }, [])
+
+   const onMouseEnter = () => {
+      const stoker = stokerRef.current
+      if (stoker) {
+         stoker.style.opacity = '1'
+         setOnEnter(true)
+      }
+   }
+
+   const onMouseLeave = () => {
+      const stoker = stokerRef.current
+      if (stoker) {
+         stoker.style.opacity = '0'
+         setOnEnter(false)
+      }
+   }
+
    return (
-      <Section>
+      <Section ref={sectionRef}>
+         <CursorStoker ref={stokerRef}>
+            <StokerInner>
+            <img src="/work1.png" />
+            </StokerInner>
+         </CursorStoker>
          <Container>
             <Wrapper>
                <SectionTitle>STUDENT WORKS</SectionTitle>
                <SectionSubTitle>学生達の作品</SectionSubTitle>
                <WorkList>
                   {[...Array(8)].map((_, i) => (
-                     <WorkListItem key={i}>
+                     <WorkListItem key={i} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
                         <WorkListItemYear>2020</WorkListItemYear>
                         <WorkListItemAuthor>SEKIMOTO MAKI</WorkListItemAuthor>
                         <WorkListItemTitle>IKIRAKUYOGA</WorkListItemTitle>
