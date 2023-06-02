@@ -66,9 +66,16 @@ const ImgWrapper = styled.div`
    img {
       position: absolute;
       opacity: 1;
-      transition: 0.5s;
-      &[data-hidden='true'] {
+      transition: 1s;
+      &[data-is-hidden='true'] {
          opacity: 0;
+         transform: translate(-60vw, -60vh) rotate(-100deg) !important;
+      }
+      &:nth-child(2) {
+         &[data-is-hidden='true'] {
+         opacity: 0;
+         transform: translate(60vw, -60vh) rotate(100deg) !important;
+      }
       }
    }
    @media (max-width: 768px) {
@@ -210,7 +217,7 @@ const ProfessorSection = () => {
                         src={profile.imgPath}
                         alt=''
                         style={{ transform: `rotate(${profile.imgDeg}deg)` }}
-                        data-hidden={professorIndex > PROFESSOR_PROFILE.length - 1 - idx}
+                        data-is-hidden={professorIndex > PROFESSOR_PROFILE.length - 1 - idx}
                         key={profile.name_en}
                      />
                   ))}
