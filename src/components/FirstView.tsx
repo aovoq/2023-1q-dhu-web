@@ -49,6 +49,9 @@ const SiteHead = styled.h1`
    white-space: nowrap;
    pointer-events: none;
    font-family: var(--font-ttcommons);
+   @media (max-width: 768px) {
+      font-size: calc(8px * 4);
+   }
 `
 
 const FirstView = () => {

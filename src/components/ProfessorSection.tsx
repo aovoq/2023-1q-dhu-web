@@ -38,6 +38,12 @@ const StickyWrapper = styled.div`
       bottom: 0;
       left: 60px;
    }
+   @media (max-width: 768px) {
+      width: calc(100% - 20px * 2);
+      &[data-is-section-end='true'] {
+         left: 20px;
+      }
+   }
 `
 
 const SectionHead = styled.h2`
@@ -65,6 +71,12 @@ const ImgWrapper = styled.div`
          opacity: 0;
       }
    }
+   @media (max-width: 768px) {
+      transform: translateY(-7rem);
+      img {
+         height: 40vh;
+      }
+   }
 `
 
 const ProfessorProfile = styled.div`
@@ -74,6 +86,9 @@ const ProfessorProfile = styled.div`
    width: 350px;
    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
    padding-block-end: calc(8px * 4);
+   @media (max-width: 768px) {
+      bottom: 1rem;
+   }
 `
 
 const ScrollStatsBar = styled.div`

@@ -11,6 +11,11 @@ const Article = styled.article`
    margin-inline: auto;
    margin-block-start: calc(8px * 30);
    display: flex;
+   @media (max-width: 768px) {
+      width: calc(100% - 20px * 2);
+      flex-direction: column;
+      gap: calc(8px * 5);
+   }
 `
 
 const ArticleHead = styled.div`

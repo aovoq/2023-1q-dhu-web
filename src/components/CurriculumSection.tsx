@@ -11,6 +11,11 @@ const Article = styled.article`
    margin-inline: auto;
    margin-block-start: calc(8px * 30);
    display: flex;
+   @media (max-width: 768px) {
+      width: calc(100% - 20px * 2);
+      flex-direction: column;
+      gap: calc(8px * 5);
+   }
 `
 
 const ArticleHead = styled.div`
@@ -27,7 +32,8 @@ display: flex;
 gap: calc(8px * 8);
 `
 const ArticleContentItem = styled.div``
-const ArticleContentItemImg = styled.div`
+const ArticleContentItemImg = styled.img`
+   object-fit: cover;
    width: 276px;
    height: 491px;
    background: #D9D9D9;
@@ -47,7 +53,7 @@ const CurriculumSection = () => {
          <ArticleContent>
             {[...Array(8)].map((_, i) => (
                <ArticleContentItem key={i}>
-                  <ArticleContentItemImg/>
+                  <ArticleContentItemImg src={`/CURRICULUM${i+1}.jpg`} />
                   <ArticleContentItemTitle>Webサイトプロトタイプ演習</ArticleContentItemTitle>
                </ArticleContentItem>
             ))}

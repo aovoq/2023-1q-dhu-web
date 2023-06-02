@@ -23,24 +23,36 @@ const FooterLink = styled.a`
    justify-content: center;
    align-items: center;
    gap: calc(8px * 5);
+   @media (max-width: 768px) {
+      gap: calc(8px * 2);
+   }
 `
 
 const FooterTitle = styled.span`
    font-size: 24px;
    letter-spacing: 0.05em;
    font-weight: 700;
+   @media (max-width: 768px) {
+      font-size: 16px;
+   }
 `
 
 const FooterMainText = styled.p`
    font-size: 48px;
    letter-spacing: 0.05em;
    font-family: var(--font-ttcommons);
+   @media (max-width: 768px) {
+      font-size: 40px;
+   }
 `
 
 const FooterSubText = styled.p`
    font-size: 24px;
    letter-spacing: 0.05em;
    font-weight: 700;
+   @media (max-width: 768px) {
+      font-size: 16px;
+   }
 `
 
 const Footer = () => {

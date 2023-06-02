@@ -11,11 +11,17 @@ const Container = styled.div`
    background: #f9f7f4;
    border-radius: 20px;
    padding-block: calc(8px * 22);
+   @media (max-width: 768px) {
+      padding-block: calc(8px * 12);
+   }
 `
 
 const Wrapper = styled.div`
    width: calc(100% - 150px * 2);
    margin-inline: auto;
+   @media (max-width :768px) {
+      width: calc(100% - 20px * 2);
+   }
 `
 
 const SectionTitle = styled.h2`
@@ -44,10 +50,17 @@ const WorkListItem = styled.li`
    &:last-child {
       border-block-end: 1px solid rgba(0, 0, 0, 0.3);
    }
+   @media (max-width: 768px) {
+      padding-inline-end: 0;
+      flex-wrap: wrap;
+   }
 `
 const WorkListItemYear = styled.span`
    font-size: 18px;
    letter-spacing: 0.05em;
+   @media (max-width: 768px) {
+      font-size: 14px;
+   }
 `
 const WorkListItemAuthor = styled.span`
    font-size: 48px;
@@ -57,6 +70,9 @@ const WorkListItemAuthor = styled.span`
    line-height: 1;
    text-align: right;
    flex-grow: 1;
+   @media (max-width: 768px) {
+      font-size: 28px;
+   }
    `
 const WorkListItemTitle = styled.span`
    font-size: 48px;
@@ -66,6 +82,9 @@ const WorkListItemTitle = styled.span`
    line-height: 1;
    text-align: right;
    flex-grow: 1;
+   @media (max-width: 768px) {
+      font-size: 28px;
+   }
 `
 
 const WorksSection = () => {
